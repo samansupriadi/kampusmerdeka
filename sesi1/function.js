@@ -11,4 +11,6 @@ function sebut(nama, gender){
 	}
 }
 
-console.log(sebut(nama, gender))
+//console.log(sebut(nama, gender))
+
+exports.sebut = sebut
