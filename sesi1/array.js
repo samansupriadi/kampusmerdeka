@@ -11,9 +11,15 @@ arr.sort()
 
 let arr2 = [1, 2, 3, 4, 10, 14, 20, 16]
 function compare(a, b){
- console.log(a, b)
+ //console.log(a, b)
  return a - b
 }
 arr2.sort(compare)
 
-console.log(arr2)
+//console.log(arr2)
+
+function cari(item){
+	return item > 10
+}
+
+console.log(arr2.find(cari))
