@@ -1,11 +1,13 @@
 let nama = "saman"
-let gender = "male"
+let gender = "test"
 
 function sebut(nama, gender){
 	if(gender === "male"){
 		return ("Tuan " +   nama)
-	}else{
+	}else if(gender === "female"){
 		return ("Nona " + nama)
+	}else{
+		return `Hallo kak ${nama}`
 	}
 }
 
