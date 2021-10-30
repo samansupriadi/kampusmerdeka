@@ -1,0 +1,36 @@
+create table "Users" (
+	id serial primary key,
+	nama varchar,
+	umur integer,
+	is_active boolean
+);
+alter table "Users" alter column  "nama" set NOT NULL;
+alter table "Users" alter column  "umur" set NOT NULL;
+alter table "Users" alter column  "is_active" set NOT NULL;
+insert into "Users" ("nama", "umur", "is_active") values ('saman', 20, 'true');
+select * from "Users";
+drop table if exists "Users";
+drop table if exists "Students_detail";
+drop table if exists "Students";
+
+create table "Students"(
+	nim serial primary key,
+	nama varchar NOT NULL,
+	is_active boolean,
+	id_jurusan integer not null
+);
+create table "jurusan"(
+	id serial primary key,
+	nama_jurusan varchar  not null
+);
+alter table "Students" add constraint jurusan_id foreign key (id_jurusan) references "jurusan"(id); 
+insert into "jurusan" ("nama_jurusan")values('TI'),('SI'),('ILKOM');
+select * from "jurusan";
+insert into "Students" ("nama", "is_active", "id_jurusan") values ('saman', true, 1), ('senju', true, 2), ('itachi', true, 3), ('danzo', false, 3);
+select * from "Students";
+
+//inner join
+select "nim", "nama", "is_active", "nama_jurusan" from "Students" inner join "jurusan" on "Students"."id_jurusan" = "jurusan"."id"
+where "is_active" = false;
+//left join
+select "nim", "nama", "is_active", "nama_jurusan" from "Students" left join "jurusan" on "Students"."id_jurusan" = "jurusan"."id";
