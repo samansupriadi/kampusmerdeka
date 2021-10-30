@@ -1,0 +1,19 @@
+create table "Students_detail"(
+	nim varchar,
+	address varchar,
+	statusKeaftifan varchar,
+	pembayaran varchar
+);
+alter table  "Students_detail"  add column "jurusan" integer;
+alter table "Students_detail" drop column "statusKeaftifan";
+insert into "Students_detail" ("nim", "address", "jurusan", "pembayaran") 
+values
+('12345', 'ciamis', 1, 'lunas'),
+('12345', 'ciamis', 2, 'lunas'),
+('12345', 'ciamis', 1, 'lunas'),
+('12345', 'ciamis', 2, 'lunas'),
+('12345', 'ciamis', 1, 'lunas');
+
+select * from "Students_detail";
+
+update "Students_detail" set "address" = 'bandung' where jurusan = 1;

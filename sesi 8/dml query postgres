@@ -1,0 +1,21 @@
+insert into "Students" ("name", "hoby", "age", "NIM")
+values 
+('samans', 'membaca dokumentasi', 20, '123456'),
+('samanss', 'mengagumi senja', 21, '123456'),
+('samansss', 'menikmati kopi', 22, '123456'),
+('hafid', 'baca dokumentasi', 23, '123456');
+
+select * from "Students";
+
+update "Students" set "hoby" = 'Main HP & Rebahans', "age" = 20, "NIM" = '4567' where "name" = 'hafid';
+
+delete from "Students" where "NIM" = '4567';
+
+select * from "Students" where "age" > 20 and "hoby" like 'mengagumi%';
+select * from "Students" where "age" between 20 and 22 order by "age" limit 2;
+
+select avg("age") from "Students";
+select sum("age") from "Students";
+select * from "Students" where lower("hoby") = 'menikmat';
+
+

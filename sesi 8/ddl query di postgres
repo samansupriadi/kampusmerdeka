@@ -1,0 +1,18 @@
+create table "hapus"(
+	name varchar,
+	hoby varchar,
+	age integer
+);
+
+drop table "hapus";
+
+create table "Students"(
+	name varchar(100),
+	hoby varchar,
+	age integer
+);
+
+//alter table
+
+alter table "Students"
+add column "NIM" varchar;
