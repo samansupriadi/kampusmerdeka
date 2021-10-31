@@ -9,29 +9,56 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 
-
-//verifikasi jwt
-function verifikasi(req, res, next){
-    //console.log(req.headers)
-    let getHeader = req.headers["auth"]
-    if(typeof getHeader !== "undefined"){
-        req.token = getHeader
-        next()
+// start login jwt
+app.post("/login", (req, res)=>{
+    const user = data.filter(result =>{
+        return result.email.toLocaleLowerCase() == req.body.email.toLocaleLowerCase()
+    })
+    //console.log(user[0])
+    const cariIndex = data.findIndex(cari => cari.email == user[0].email)
+    //console.log(cariIndex)
+    if(data[cariIndex].email == req.body.email && data[cariIndex].password == req.body.password){
+        let token = jwt.sign(user[0], 'sangat rahasia')
+        res.status(200).json({token : token})
+        //console.log("sukses")
+        //res.status(200).json({
+            //login : "sukses"
+       // })
     }else{
-        res.status(403)
+        res.status(401).json({
+            login : "Salah username atau password"
+        })
     }
-}
+
+    
+})
+// end jwt login
 
 
-jwt.sign(
-    {
-        data : data
-    },
-    "secret",
-    (err, token) => {
-        console.log(token)
+//cek token apa sudah ada apa engga
+app.use(function(req, res, next){
+    console.log(req.headers.token)
+    
+    try{
+        let decoded = jwt.verify(req.headers.token, 'sangat rahasia')
+        console.log(decoded)
+        const user = data.filter(result =>{
+            return result.email.toLocaleLowerCase() == decoded.email
+        })
+       //console.log("lalalalalal")
+       // console.log(user)
+
+       if(user !== null){
+           next()
+       }
+
+    }catch(err){
+        res.status(401).json({
+            pesan : "User tidak teregistrasi"
+        })
     }
-)
+})
+
 
 //create user
 app.post("/user", (req, res)=>{
@@ -80,6 +107,13 @@ app.put("/user/:id", (req, res)=>{
 })
 
 
+app.get("/user", (req, res)=>{
+    res.status(200).json({
+        data : data
+    })
+})
+
+/*
 app.get("/user", verifikasi, (req, res)=>{
     jwt.verify(req.token, "secret", (err, dataAuth) => {
         if(err){
@@ -89,7 +123,7 @@ app.get("/user", verifikasi, (req, res)=>{
         }
     })
 })
-
+*/
 
 //find spesifik user
 app.get('/user/:nama', (req, res)=>{
