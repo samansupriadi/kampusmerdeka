@@ -4,6 +4,7 @@ const port = 3008
 const jwt = require("jsonwebtoken")
 const uuid = require("uuid")
 let data = require('./data.json')
+const fs = require("fs")
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
@@ -67,13 +68,17 @@ app.post("/user", (req, res)=>{
         email: req.body.email,
         "first_name": req.body.first_name,
         "last_name" : req.body.last_name,
+        password : req.body.password,
         avatar : req.body.avatar
     }
     data.push(newUser)
+    console.log(data)
+    fs.writeFileSync('./data.json', JSON.stringify(data, null, 2), 'utf-8')
     res.status(200).json({
         data: data
     })
 })
+
 
 //update / edit user
 app.put("/user/:id", (req, res)=>{
@@ -100,9 +105,10 @@ app.put("/user/:id", (req, res)=>{
         email: req.body.email,
         "first_name": req.body.first_name,
         "last_name" : req.body.last_name,
+        password : req.body.password,
         avatar : req.body.avatar
     }
-    
+    fs.writeFileSync('./data.json', JSON.stringify(data, null, 2), 'utf-8')
     return res.json(data) 
 })
 
@@ -139,6 +145,7 @@ app.delete("/user/:id", (req, res)=>{
     const users = data.filter(result =>{
         return result.id != req.params.id
     })
+    fs.writeFileSync('./data.json', JSON.stringify(users, null, 2), 'utf-8')
     return res.json(users)
 })
 

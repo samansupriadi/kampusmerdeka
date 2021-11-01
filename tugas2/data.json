@@ -1,50 +1,49 @@
 [
-    {
-      "id": 1,
-      "email": "george.bluth@reqres.in",
-      "first_name": "George",
-      "last_name": "Bluth",
-      "password" : "12345",
-      "avatar": "https://reqres.in/img/faces/1-image.jpg"
-    },
-    {
-      "id": 2,
-      "email": "janet.weaver@reqres.in",
-      "first_name": "Janet",
-      "last_name": "Weaver",
-      "password" : "12345",
-      "avatar": "https://reqres.in/img/faces/2-image.jpg"
-    },
-    {
-      "id": 3,
-      "email": "emma.wong@reqres.in",
-      "first_name": "Emma",
-      "last_name": "Wong",
-      "password" : "12345",
-      "avatar": "https://reqres.in/img/faces/3-image.jpg"
-    },
-    {
-      "id": 4,
-      "email": "eve.holt@reqres.in",
-      "first_name": "Eve",
-      "last_name": "Holt",
-      "password" : "12345",
-      "avatar": "https://reqres.in/img/faces/4-image.jpg"
-    },
-    {
-      "id": 5,
-      "email": "charles.morris@reqres.in",
-      "first_name": "Charles",
-      "last_name": "Morris",
-      "password" : "12345",
-      "avatar": "https://reqres.in/img/faces/5-image.jpg"
-    },
-    {
-      "id": 6,
-      "email": "tracey.ramos@reqres.in",
-      "first_name": "Tracey",
-      "last_name": "Ramos",
-      "password" : "12345",
-      "avatar": "https://reqres.in/img/faces/6-image.jpg"
-    }
-  ]
+  {
+    "id": 1,
+    "email": "samansupriadi@gmail.com",
+    "first_name": "saman",
+    "last_name": "supriadi",
+    "password": "12345",
+    "avatar": ""
+  },
+  {
+    "id": 3,
+    "email": "emma.wong@reqres.in",
+    "first_name": "Emma",
+    "last_name": "Wong",
+    "password": "12345",
+    "avatar": "https://reqres.in/img/faces/3-image.jpg"
+  },
+  {
+    "id": 4,
+    "email": "eve.holt@reqres.in",
+    "first_name": "Eve",
+    "last_name": "Holt",
+    "password": "12345",
+    "avatar": "https://reqres.in/img/faces/4-image.jpg"
+  },
+  {
+    "id": 5,
+    "email": "charles.morris@reqres.in",
+    "first_name": "Charles",
+    "last_name": "Morris",
+    "password": "12345",
+    "avatar": "https://reqres.in/img/faces/5-image.jpg"
+  },
+  {
+    "id": 6,
+    "email": "tracey.ramos@reqres.in",
+    "first_name": "Tracey",
+    "last_name": "Ramos",
+    "password": "12345",
+    "avatar": "https://reqres.in/img/faces/6-image.jpg"
+  },
+  {
+    "id": "57e6c5e0-3b10-11ec-a460-9d7e28540967",
+    "email": "samansenjusimrangkir@gmail.com",
+    "first_name": "samansenju",
+    "last_name": "senjusekali",
+    "password": "12345"
+  }
+]
