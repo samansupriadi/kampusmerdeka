@@ -6,6 +6,11 @@ const userData = {
     password: "12345"
 }
 
+const wrongData = {
+    email: "wrong@gmail.com",
+    password: "12345"
+}
+
 describe('GET /user', ()=>{
     test("GET /user should return arr of user", function(done){
         request(app)
@@ -41,4 +46,19 @@ describe('POST /login', () => {
              done()
          })
     })
+
+    it("should send response with 401 status code", (done)=>{
+       
+        request(app)
+         .post('/user')
+         .send(wrongData)
+         .end(function (err, res){
+             if(err){
+                 done(err)
+             }
+             expect(res.status).toEqual(401);
+             expect(typeof res.body).toEqual("object");
+             done()
+         })
+    }) 
 })
